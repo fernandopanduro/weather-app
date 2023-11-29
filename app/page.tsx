@@ -73,7 +73,7 @@ export default function Home() {
           <div className="w-full max-w-screen-sm bg-white p-10 rounded-xl ring-8 mt-10 ring-white ring-opacity-40">
             <div className="flex justify-between">
               <div className="flex flex-col">
-                <span className="text-6xl font-bold">
+                <span className="text-4xl sm:text-6xl font-bold">
                   {data.current.temp_c}°C
                 </span>
                 <span className="font-semibold mt-1 text-gray-500">
