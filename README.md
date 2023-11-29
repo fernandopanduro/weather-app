@@ -6,7 +6,7 @@ Este proyecto es parte de un reto.
 
 ## Descargar e Iniciar el Proyecto
 
-Para comenzar con el proyecto desde terminal, sigue estos pasos:
+Para comenzar con el proyecto, sigue estos pasos:
 
 1. **Clonar el Repositorio**:
 
@@ -29,11 +29,11 @@ Para comenzar con el proyecto desde terminal, sigue estos pasos:
 
    ```
 
-4. **Agregar archivo .env en el root del proyecto**:
+4. **Setup .env file**:
 
-   ```bash
-   WEATHER_API_KEY='ff9b41622f994b1287a73535210809'
-   BASE_URL='https://api.weatherapi.com/v1/'
+   ```js
+   WEATHER_API_KEY = "ff9b41622f994b1287a73535210809";
+   BASE_URL = "https://api.weatherapi.com/v1/";
    ```
 
 5. **Iniciar el Proyecto**:
