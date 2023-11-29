@@ -40,3 +40,11 @@ Para comenzar con el proyecto, sigue estos pasos:
    ```bash
    npm run dev
    ```
+
+## Available commands
+
+Running commands with npm `npm run [command]`
+
+| command | description                              |
+| :------ | :--------------------------------------- |
+| `dev`   | Starts a development instance of the app |
