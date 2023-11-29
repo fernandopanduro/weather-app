@@ -10,9 +10,6 @@ export default function Home() {
   const [error, setError] = useState({ status: false, message: "" });
   const [data, setData] = useState<Weather | null>(null);
 
-  const BASE_URL = "https://api.weatherapi.com/v1/";
-  const WEATHER_API_KEY = "ff9b41622f994b1287a73535210809";
-
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (inputSearch === "") return;
@@ -20,10 +17,16 @@ export default function Home() {
     setIsLoading(true);
     setError({ status: false, message: "" });
 
-    fetch(
-      `${BASE_URL}forecast.json?key=${WEATHER_API_KEY}&q=${inputSearch}&days=5`
-    )
-      .then(res => res.json())
+    fetch("/api", {
+      method: "POST",
+      body: JSON.stringify(inputSearch),
+    })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return res.json();
+      })
       .then(res => {
         if (res.error) {
           setError({ status: true, message: res.error.message });
@@ -32,15 +35,15 @@ export default function Home() {
         }
       })
       .catch(error => {
-        console.log(error);
         setError({
           status: true,
-          message: "Hubo un error al procesar la solicitud.",
+          message: "There was an error processing the request.",
         });
+        console.log("Catch Error:", error);
       })
       .finally(() => {
-        setIsLoading(false);
         setInputSearch("");
+        setIsLoading(false);
       });
   };
 
@@ -65,7 +68,7 @@ export default function Home() {
       {!data && !isLoading && !error.status && (
         <strong className="mt-10">Busca el clima en tu ciudad</strong>
       )}
-      {data && !error.status && (
+      {data && !error.status && !isLoading && (
         <>
           <div className="w-full max-w-screen-sm bg-white p-10 rounded-xl ring-8 mt-10 ring-white ring-opacity-40">
             <div className="flex justify-between">
