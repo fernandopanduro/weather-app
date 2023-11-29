@@ -41,10 +41,10 @@ Para comenzar con el proyecto, sigue estos pasos:
    npm run dev
    ```
 
-## Available commands
+## Comandos disponibles
 
-Running commands with npm `npm run [command]`
+Comandos con npm `npm run [command]`
 
-| command | description                              |
+| Comando | Descripcion                              |
 | :------ | :--------------------------------------- |
-| `dev`   | Starts a development instance of the app |
+| `dev`   | Empieza el servidor de desarrollo |
